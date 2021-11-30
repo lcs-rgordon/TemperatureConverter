@@ -37,7 +37,7 @@ struct ContentView: View {
 
         VStack(alignment: .leading) {
                         
-            // Output – show temperature in Celsius
+            // Label for Celsius value
             Text("Celsius")
                 .font(.title2)
                 .bold()
@@ -45,6 +45,7 @@ struct ContentView: View {
             // Input - select temperature
             Slider(value: $celsius,
                    in: -50.0...50,
+                   step: 1.0,
                    label: {
                 Text("Guess")
             },
@@ -65,7 +66,25 @@ struct ContentView: View {
 
                 Spacer()
             }
-                        
+            .padding(.vertical, 20)
+            
+            // Label for Fahrenheit value
+            Text("Fahrenheit")
+                .font(.title2)
+                .bold()
+
+            HStack {
+                Spacer()
+                
+                // Output – show temperature in Fahrenheit
+                Text("\(String(format: "%.1f", fahrenheit)) °F")
+                    .font(.title2)
+                    .bold()
+
+                Spacer()
+            }
+            .padding(.vertical, 20)
+
             // Output - Show feedback
             HStack {
 
